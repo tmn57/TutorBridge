@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Fade } from 'react-reveal';
-import Slider from 'react-slick';
 import Carousel from 'react-multi-carousel';
-import { PrevArrow, NextArrow } from '../components/CustomArrow';
 import 'react-multi-carousel/lib/styles.css';
 
 const SUBJECT = [
@@ -35,6 +33,39 @@ const responsive = {
     items: 1
   }
 };
+
+const INTRODUCE = [
+  {
+    title: 'Chất lượng',
+    description: 'Gia sư được kiểm duyệt kỹ cáng và đánh giá khách quan bởi phụ huynh.',
+    icon: 'fa fa-thumbs-up'
+  },
+  {
+    title: 'Linh hoạt',
+    description: 'Cung cấp dịch vụ linh hoạt, tùy chỉnh dễ dàng.',
+    icon: 'fa fa-smile-o'
+  },
+  {
+    title: 'Kết nổi trực tiếp',
+    description: 'Kết nối học viên với hàng nghìn gia sư khắp cả nước theo mô hình Uber, Grab.',
+    icon: 'fa fa-handshake-o'
+  },
+  {
+    title: 'Lựa chọn đa dạng',
+    description: 'Gia sư là giảng viên, giáo viên, sinh viên, người nước ngoài,..',
+    icon: 'fa fa-graduation-cap'
+  },
+  {
+    title: 'Nhanh chóng',
+    description: 'Chỉ mất 2 phút để đăng yêu cần tìm gia sư.',
+    icon: 'fa fa-clock-o'
+  },
+  {
+    title: 'Tùy chọn học phí',
+    description: 'Nhiều gia sư cùng đấu giá học phí, bạn chỉ cần lựa chọn học phí phù hợp nhất.',
+    icon: 'fa fa-money'
+  }
+]
 
 const Home = () => {
   return (
@@ -87,63 +118,22 @@ const Home = () => {
           <div className="text-center mb-5 section-heading">
             <h2>TÌM GIA SƯ THEO CÔNG NGHỆ 4.0</h2>
           </div>
-
           <div className="d-block d-md-flex border-bottom row">
-            <div className="col-4 text-center p-4 item border-right">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-thumbs-up" />
-              </span>
-              <h2 className="h4">Chất lượng</h2>
-              <p>
-                Gia sư được kiểm duyệt kỹ cáng và đánh giá khách quan bởi phụ
-                huynh,
-              </p>
-            </div>
-            <div className="col-4 text-center p-4 item border-right">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-smile-o" />
-              </span>
-              <h2 className="h4">Linh hoạt</h2>
-              <p>Cung cấp dịch vụ linh hoạt, tùy chỉnh dễ dàng.</p>
-            </div>
-            <div className="col-4 text-center p-4 item">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-handshake-o" />
-              </span>
-              <h2 className="h4">Kết nổi trực tiếp</h2>
-              <p>
-                Kết nối học viên với hàng nghìn gia sư khắp cả nước theo mô hình
-                Uber, Grab.
-              </p>
-            </div>
-          </div>
-          <div className="d-block d-md-flex row">
-            <div className="col-4 text-center p-4 item border-right">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-graduation-cap" />
-              </span>
-              <h2 className="h4">Lựa chọn đa dạng</h2>
-              <p>
-                Gia sư là giảng viên, giáo viên, sinh viên, người nước ngoài,..
-              </p>
-            </div>
-            <div className="col-4 text-center p-4 item border-right">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-clock-o" />
-              </span>
-              <h2 className="h4">Nhanh chóng</h2>
-              <p>Chỉ mất 2 phút để đăng yêu cần tìm gia sư.</p>
-            </div>
-            <div className="col-4 text-center p-4 item">
-              <span className="display-3 mb-3 d-block text-success">
-                <i className="fa fa-money" />
-              </span>
-              <h2 className="h4">Tùy chọn học phí</h2>
-              <p>
-                Nhiều gia sư cùng đấu giá học phí, bạn chỉ cần lựa chọn học phí
-                phù hợp nhất.
-              </p>
-            </div>
+            {
+              INTRODUCE.map((intro, index) => {
+                return (
+                  <Fade bottom key={index} delay={100 * index}>
+                    <div className="col-4 text-center p-4 item border-right">
+                      <span className="display-3 mb-3 d-block text-success">
+                        <i className={intro.icon} />
+                      </span>
+                      <h2 className="h4">{intro.title}</h2>
+                      <p>{intro.description}</p>
+                    </div>
+                  </Fade>
+                )
+              })
+            }
           </div>
         </div>
       </div>
@@ -152,42 +142,44 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2>Gia sư nổi bật</h2>
+              <h2>GIA SƯ NỔI BẬT</h2>
             </div>
           </div>
-          <Carousel showDots arrows={false} responsive={responsive}>
-            {[...Array(10).keys()].map((num, index) => {
-              return (
-                <div key={index}>
-                  <div className="img-border-sm mb-4 text-center">
-                    <a href="#" className="image-play">
-                      <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLlc52Qk68ndsvrA0a8BLsc6iqf77wUPYawW_2PIRe9zyZkYAT&s"
-                        alt=""
-                        className="img-fluid"
-                      />
+          <Fade bottom delay={100}>
+            <Carousel showDots arrows={false} autoPlay infinite responsive={responsive}>
+              {[...Array(10).keys()].map((num, index) => {
+                return (
+                  <div key={index}>
+                    <div className="img-border-sm mb-4 text-center">
+                      <a href="/#" className="image-play">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLlc52Qk68ndsvrA0a8BLsc6iqf77wUPYawW_2PIRe9zyZkYAT&s"
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </a>
+                    </div>
+                    <h2 className="text-muted">
+                      <a className="text-dark text-center" href="/#">
+                        Nguyễn Văn A
                     </a>
-                  </div>
-                  <h2 className="text-muted">
-                    <a className="text-dark text-center" href="#">
-                      Nguyễn Văn A
+                    </h2>
+                    <span className="mb-3 d-block">
+                      <a className="text-muted text-center" href="/#">
+                        Toán
                     </a>
-                  </h2>
-                  <span className="mb-3 d-block">
-                    <a className="text-muted text-center" href="#">
-                      Toán
-                    </a>
-                  </span>
-                  <span className="mb-3 d-block text-danger">200.000vnd</span>
-                  <p className="mb-5">
-                    Sinh viên năm cuối ngành Ngôn ngữ Anh, Học viện Khoa học
-                    Quân sự Có kinh nghiệm dạy tiếng Anh mất gốc, dạy tiếng Anh
-                    cấp 2,3
+                    </span>
+                    <span className="mb-3 d-block text-danger">200.000vnd</span>
+                    <p className="mb-5">
+                      Sinh viên năm cuối ngành Ngôn ngữ Anh, Học viện Khoa học
+                      Quân sự Có kinh nghiệm dạy tiếng Anh mất gốc, dạy tiếng Anh
+                      cấp 2,3
                   </p>
-                </div>
-              );
-            })}
-          </Carousel>
+                  </div>
+                );
+              })}
+            </Carousel>
+          </Fade>
         </div>
       </div>
 
@@ -195,18 +187,20 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2 className="mb-5">Danh sách môn học</h2>
+              <h2 className="mb-5">DANH SÁCH MÔN HỌC</h2>
             </div>
           </div>
           <div className="row">
             {SUBJECT.map((subject, index) => {
               return (
-                <div className="col-sm-6 col-md-4 col-lg-3 mb-3" key={index}>
-                  <a href="#" className="h-100 feature-item">
-                    <span className="d-block icon flaticon-calculator mb-3 text-primary" />
-                    <h2>{subject}</h2>
-                  </a>
-                </div>
+                <Fade bottom key={index} delay={100 * index}>
+                  <div className="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <a href="/#" className="h-100 feature-item">
+                      <span className="d-block icon flaticon-calculator mb-3 text-primary" />
+                      <h2>{subject}</h2>
+                    </a>
+                  </div>
+                </Fade>
               );
             })}
           </div>

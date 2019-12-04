@@ -70,9 +70,8 @@ const INTRODUCE = [
 const Home = () => {
   return (
     <>
-      <div style={{ height: '50px' }} />
       <div
-        className="site-blocks-cover overlay"
+        className="site-blocks-cover overlay parallax"
         style={{ backgroundImage: `url(${'/images/hero_1.jpg'})` }}
       >
         <Container>
@@ -113,17 +112,17 @@ const Home = () => {
         </Container>
       </div>
 
-      <div className="site-section site-block-feature bg-light">
+      {/* <div className="site-section site-block-feature bg-light">
         <div className="container">
           <div className="text-center mb-5 section-heading">
             <h2>TÌM GIA SƯ THEO CÔNG NGHỆ 4.0</h2>
           </div>
-          <div className="d-block d-md-flex border-bottom row">
+          <div className="d-block d-md-flex row">
             {
               INTRODUCE.map((intro, index) => {
                 return (
                   <Fade bottom key={index} delay={100 * index}>
-                    <div className="col-4 text-center p-4 item border-right">
+                    <div className="col-4 text-center p-4 item">
                       <span className="display-3 mb-3 d-block text-success">
                         <i className={intro.icon} />
                       </span>
@@ -135,6 +134,75 @@ const Home = () => {
               })
             }
           </div>
+        </div>
+      </div> */}
+
+      <div className="site-section site-block-feature bg-light">
+        <div className="container">
+          <div className="text-center mb-5 section-heading">
+            <h2>TÌM GIA SƯ THEO CÔNG NGHỆ 4.0</h2>
+          </div>
+          <Fade bottom delay={100}>
+            <div className="d-block d-md-flex border-bottom row">
+              <div className="col-md-4 col-sm-12 text-center p-4 item border-right">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-thumbs-up" />
+                </span>
+                <h2 className="h4">Chất lượng</h2>
+                <p>
+                  Gia sư được kiểm duyệt kỹ cáng và đánh giá khách quan bởi phụ
+                  huynh,
+              </p>
+              </div>
+              <div className="col-md-4 col-sm-12 text-center p-4 item border-right">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-smile-o" />
+                </span>
+                <h2 className="h4">Linh hoạt</h2>
+                <p>Cung cấp dịch vụ linh hoạt, tùy chỉnh dễ dàng.</p>
+              </div>
+              <div className="col-md-4 col-sm-12 text-center p-4 item">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-handshake-o" />
+                </span>
+                <h2 className="h4">Kết nổi trực tiếp</h2>
+                <p>
+                  Kết nối học viên với hàng nghìn gia sư khắp cả nước theo mô hình
+                  Uber, Grab.
+              </p>
+              </div>
+            </div>
+          </Fade>
+          <Fade bottom delay={200}>
+            <div className="d-block d-md-flex row">
+              <div className="col-md-4 col-sm-12 text-center p-4 item border-right">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-graduation-cap" />
+                </span>
+                <h2 className="h4">Lựa chọn đa dạng</h2>
+                <p>
+                  Gia sư là giảng viên, giáo viên, sinh viên, người nước ngoài,..
+              </p>
+              </div>
+              <div className="col-md-4 col-sm-12 text-center p-4 item border-right">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-clock-o" />
+                </span>
+                <h2 className="h4">Nhanh chóng</h2>
+                <p>Chỉ mất 2 phút để đăng yêu cần tìm gia sư.</p>
+              </div>
+              <div className="col-md-4 col-sm-12 text-center p-4 item">
+                <span className="display-3 mb-3 d-block text-success">
+                  <i className="fa fa-money" />
+                </span>
+                <h2 className="h4">Tùy chọn học phí</h2>
+                <p>
+                  Nhiều gia sư cùng đấu giá học phí, bạn chỉ cần lựa chọn học phí
+                  phù hợp nhất.
+              </p>
+              </div>
+            </div>
+          </Fade>
         </div>
       </div>
 
